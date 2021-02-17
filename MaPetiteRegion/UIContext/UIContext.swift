@@ -24,6 +24,7 @@ class UIContext {
         
         struct News {
             static var cellBGColor:UIColor = UIColor.rgba(r: 250, g: 250, b: 250, a: 255)
+            static var headerBGColor:UIColor = UIColor.rgba(r: 240, g: 236, b: 228, a: 1)
         }
         
         struct Settings {
