@@ -27,6 +27,7 @@ class NewsTableViewCell: UITableViewCell {
     }
     
     func setup(m:NewsModelUI) {
+        self.selectionStyle = .none
         newsImage.image = UIImage(named: m.imageUrl)
         newsTitle.text = m.title
         newsHat.text = m.hat

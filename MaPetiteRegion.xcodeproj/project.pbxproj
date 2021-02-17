@@ -11,6 +11,7 @@
 		ED6CDA9C25DD445500213D18 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6CDA9B25DD445500213D18 /* NewsTableViewCell.swift */; };
 		ED8DB66325DD53A800D211B6 /* NewsModelUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8DB66225DD53A800D211B6 /* NewsModelUI.swift */; };
 		ED8DB66725DD547F00D211B6 /* NewsHeadModelUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8DB66625DD547F00D211B6 /* NewsHeadModelUI.swift */; };
+		ED8FA60C25DD6955006B100E /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8FA60B25DD6955006B100E /* NewsDetailViewController.swift */; };
 		EDDC8C1725DD21D300CD99FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDC8C1625DD21D300CD99FE /* AppDelegate.swift */; };
 		EDDC8C1925DD21D300CD99FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDC8C1825DD21D300CD99FE /* SceneDelegate.swift */; };
 		EDDC8C1B25DD21D300CD99FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDC8C1A25DD21D300CD99FE /* ViewController.swift */; };
@@ -30,6 +31,7 @@
 		ED6CDA9B25DD445500213D18 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		ED8DB66225DD53A800D211B6 /* NewsModelUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModelUI.swift; sourceTree = "<group>"; };
 		ED8DB66625DD547F00D211B6 /* NewsHeadModelUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHeadModelUI.swift; sourceTree = "<group>"; };
+		ED8FA60B25DD6955006B100E /* NewsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
 		EDDC8C1325DD21D300CD99FE /* MaPetiteRegion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MaPetiteRegion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDDC8C1625DD21D300CD99FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDDC8C1825DD21D300CD99FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				ED8DB66125DD537C00D211B6 /* Cells */,
 				ED8DB66025DD537400D211B6 /* Models */,
 				EDDC8C2F25DD228500CD99FE /* NewsViewController.swift */,
+				ED8FA60B25DD6955006B100E /* NewsDetailViewController.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				EDDC8C3325DD229400CD99FE /* SettingsViewController.swift in Sources */,
 				ED8DB66725DD547F00D211B6 /* NewsHeadModelUI.swift in Sources */,
 				EDDC8C3725DD233000CD99FE /* HomeViewController.swift in Sources */,
+				ED8FA60C25DD6955006B100E /* NewsDetailViewController.swift in Sources */,
 				ED6CDA9825DD444600213D18 /* HeadTableViewCell.swift in Sources */,
 				EDDC8C4625DD276200CD99FE /* ColorExtensions.swift in Sources */,
 				EDDC8C4D25DD299600CD99FE /* UIContext.swift in Sources */,
