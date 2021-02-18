@@ -29,6 +29,7 @@
 		EDDC8C4625DD276200CD99FE /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDC8C4525DD276200CD99FE /* ColorExtensions.swift */; };
 		EDDC8C4D25DD299600CD99FE /* UIContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDC8C4C25DD299600CD99FE /* UIContext.swift */; };
 		EDE772E325DE61CD00EAA057 /* WeatherInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE772E225DE61CD00EAA057 /* WeatherInfos.swift */; };
+		EDE772EC25DE6F4F00EAA057 /* NewsModelUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE772EB25DE6F4F00EAA057 /* NewsModelUIExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,7 @@
 		EDDC8C4525DD276200CD99FE /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		EDDC8C4C25DD299600CD99FE /* UIContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIContext.swift; sourceTree = "<group>"; };
 		EDE772E225DE61CD00EAA057 /* WeatherInfos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfos.swift; sourceTree = "<group>"; };
+		EDE772EB25DE6F4F00EAA057 /* NewsModelUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModelUIExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 			children = (
 				ED8DB66225DD53A800D211B6 /* NewsModelUI.swift */,
 				ED8DB66625DD547F00D211B6 /* NewsHeadModelUI.swift */,
+				EDE772EB25DE6F4F00EAA057 /* NewsModelUIExtension.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				EDDC8C3725DD233000CD99FE /* HomeViewController.swift in Sources */,
 				ED8FA60C25DD6955006B100E /* NewsDetailViewController.swift in Sources */,
 				ED6CDA9825DD444600213D18 /* HeadTableViewCell.swift in Sources */,
+				EDE772EC25DE6F4F00EAA057 /* NewsModelUIExtension.swift in Sources */,
 				EDDC8C4625DD276200CD99FE /* ColorExtensions.swift in Sources */,
 				EDE772E325DE61CD00EAA057 /* WeatherInfos.swift in Sources */,
 				EDDC8C4D25DD299600CD99FE /* UIContext.swift in Sources */,

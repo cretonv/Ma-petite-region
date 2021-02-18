@@ -23,7 +23,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         
-        NetworkManager.instance.getInfos(url: testUrl) { infos in
+        NetworkManager.instance.getInfos(cityName: "Grenoble") { infos in
             print(infos)
             self.infosData = infos
         }
