@@ -16,6 +16,15 @@ import Alamofire
 //      // Informations contient toutes les news
 // }
 
+class APICtx {
+    struct OpenDataSoft {
+        static func urlForCityInfos(cityName: String, apiKey: String) -> String {
+            return "https://api.openweathermap.org/data/2.5/weather?q=\(cityName)&appid=\(apiKey)"
+        }
+    }
+}
+
+
 class NetworkManager {
     static let instance = NetworkManager()
     let decoder = JSONDecoder()
@@ -38,7 +47,7 @@ class NetworkManager {
     }
     
     func getMeteo(cityName: String, callback: @escaping(WeatherInfos)->()) {
-        let url = "https://api.openweathermap.org/data/2.5/weather?q=\(cityName)&appid=\(weatherApiKey)"
+        let url = APICtx.OpenDataSoft.urlForCityInfos(cityName: cityName, apiKey: weatherApiKey)
         AF.request(url).response { response in
             if let data = response.data,
                let stringData = String(bytes: data, encoding: .utf8) {

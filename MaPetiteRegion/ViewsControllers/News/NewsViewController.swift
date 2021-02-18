@@ -12,7 +12,8 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet weak var tableView: UITableView!
     let testUrl = "https://public.opendatasoft.com/api/records/1.0/search/?dataset=evenements-publics-cibul&q=Annecy&lang=fr&facet=tags&facet=placename&facet=department&facet=region&facet=city&facet=date_start&facet=date_end&facet=pricing_info&facet=updated_at&facet=city_district"
-    
+    var weatherData: WeatherInfos?
+    var infosData: Infos?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,11 +23,13 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         
-        NetworkManager.instance.getInfos(url: testUrl) { (str) in
-            print(str)
+        NetworkManager.instance.getInfos(url: testUrl) { infos in
+            print(infos)
+            self.infosData = infos
         }
-        NetworkManager.instance.getMeteo(cityName: "Grenoble") { str in
-            print(str)
+        NetworkManager.instance.getMeteo(cityName: "Grenoble") { weather in
+            print(weather)
+            self.weatherData = weather
         }
     }
     
