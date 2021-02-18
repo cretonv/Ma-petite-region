@@ -11,6 +11,10 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var temperature:String = ""
+    var weather:String = ""
+    var weatherDescription = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +23,19 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        NetworkManager.instance.getMeteo(cityName: "Annecy") { meteo in
+            if let temp = meteo.main?.temp {
+                self.temperature = String(temp)
+            }
+            if let w = meteo.weather?[0].main {
+                self.weather = w
+            }
+            if let wd = meteo.weather?[0].weatherDescription {
+                self.weatherDescription = wd
+            }
+            
+            self.collectionView.reloadData()
+        }
     }
     
 
@@ -45,7 +62,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
         if indexPath.item == 1 {
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Meteo", for: indexPath) as? MeteoCollectionViewCell {
-                cell.setup()
+                cell.setup(tmp: temperature, weather: weather, weatherDesc: weatherDescription)
                 return cell
             }
         }

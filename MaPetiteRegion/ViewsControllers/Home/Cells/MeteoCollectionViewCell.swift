@@ -13,9 +13,14 @@ class MeteoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    func setup() {
-        tempLabel.text = "12°"
-        descriptionLabel.text = "ça caille un peu"
+    func setup(tmp:String, weather:String, weatherDesc:String) {
+        tempLabel.text = "\(tmp)°"
+        descriptionLabel.text = weatherDesc
+        if weather == "Clear" {
+            meteoImageView.image = UIImage(named: "meteo_sunny_bg")
+        } else {
+            meteoImageView.image = UIImage(named: "meteo_bg")
+        }
     }
     
 }

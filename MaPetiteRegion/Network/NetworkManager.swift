@@ -19,7 +19,7 @@ import Alamofire
 class APICtx {
     struct OpenWeather {
         static func urlForWeather(cityName: String, apiKey: String) -> String {
-            return "https://api.openweathermap.org/data/2.5/weather?q=\(cityName)&appid=\(apiKey)"
+            return "https://api.openweathermap.org/data/2.5/weather?q=\(cityName)&appid=\(apiKey)&lang=fr&units=metric"
         }
     }
     struct OpenDataSoft {
