@@ -7,25 +7,25 @@ import Foundation
 
 // MARK: - Infos
 struct Infos: Codable {
-    let nhits: Int
-    let parameters: Parameters
-    let records: [Record]
+    let nhits: Int?
+    let parameters: Parameters?
+    let records: [Record]?
 }
 
 // MARK: - Parameters
 struct Parameters: Codable {
-    let dataset, timezone, q: String
-    let rows, start: Int
-    let format, lang: String
-    let facet: [String]
+    let dataset, timezone, q: String?
+    let rows, start: Int?
+    let format, lang: String?
+    let facet: [String]?
 }
 
 // MARK: - Record
 struct Record: Codable {
-    let datasetid, recordid: String
-    let fields: Fields
-    let geometry: Geometry
-    let recordTimestamp: Date
+    let datasetid, recordid: String?
+    let fields: Fields?
+    let geometry: Geometry?
+    let recordTimestamp: String?
 
     enum CodingKeys: String, CodingKey {
         case datasetid, recordid, fields, geometry
@@ -35,17 +35,17 @@ struct Record: Codable {
 
 // MARK: - Fields
 struct Fields: Codable {
-    let latlon: [Double]
-    let city, dateStart, uid, tags: String
-    let pricingInfo: String
-    let image: String
-    let title: String
-    let updatedAt: Date
-    let spaceTimeInfo, fieldsDescription, timetable: String
-    let imageThumb: String
-    let link: String
-    let freeText, address, department, placename: String
-    let region, dateEnd, lang: String
+    let latlon: [Double]?
+    let city, dateStart, uid, tags: String?
+    let pricingInfo: String?
+    let image: String?
+    let title: String?
+    let updatedAt: String?
+    let spaceTimeInfo, fieldsDescription, timetable: String?
+    let imageThumb: String?
+    let link: String?
+    let freeText, address, department, placename: String?
+    let region, dateEnd, lang: String?
 
     enum CodingKeys: String, CodingKey {
         case latlon, city
@@ -68,6 +68,6 @@ struct Fields: Codable {
 
 // MARK: - Geometry
 struct Geometry: Codable {
-    let type: String
-    let coordinates: [Double]
+    let type: String?
+    let coordinates: [Double]?
 }
