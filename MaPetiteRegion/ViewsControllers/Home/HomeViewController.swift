@@ -40,6 +40,11 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        CityManager.instance.filterCities()
+        collectionView.reloadData()
+    }
+    
 
     /*
     // MARK: - Navigation
