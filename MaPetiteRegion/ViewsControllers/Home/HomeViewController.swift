@@ -25,7 +25,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         CityManager.instance.filterCities()
         
-        NetworkManager.instance.getMeteo(cityName: "Annecy") { meteo in
+        NetworkManager.instance.getMeteo(cityName: CityManager.instance.currentCity) { meteo in
             if let temp = meteo.main?.temp {
                 self.temperature = String(temp)
             }
@@ -43,6 +43,20 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     override func viewDidAppear(_ animated: Bool) {
         CityManager.instance.filterCities()
         collectionView.reloadData()
+        
+        NetworkManager.instance.getMeteo(cityName: CityManager.instance.currentCity) { meteo in
+            if let temp = meteo.main?.temp {
+                self.temperature = String(temp)
+            }
+            if let w = meteo.weather?[0].main {
+                self.weather = w
+            }
+            if let wd = meteo.weather?[0].weatherDescription {
+                self.weatherDescription = wd
+            }
+            
+            self.collectionView.reloadData()
+        }
     }
     
 
@@ -56,6 +70,15 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     */
     
+    // Détection du clic sur les villes
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.item > 2 {
+            CityManager.instance.currentCity = CityManager.instance.activedCities[indexPath.row - 3].cityName
+            
+            viewDidAppear(false)
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3 + CityManager.instance.activedCities.count         // Nous permet de gérer l'affichage du bon nombre de lignes pour les villes sur la home
     }
@@ -63,7 +86,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.item == 0 {
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Head", for: indexPath) as? HeadCollectionViewCell {
-                cell.setup(cityName: "Annecy")
+                cell.setup(cityName: CityManager.instance.currentCity)
                 return cell
             }
         }

@@ -21,6 +21,8 @@ class CityManager {
     
     var activedCities:[CitySettingsModelUI] = []
     
+    var currentCity = "Annecy"
+    
     func filterCities(){
         
         activedCities = cities.filter{ $0.isActivated == true}

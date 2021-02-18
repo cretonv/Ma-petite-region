@@ -24,14 +24,14 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         
-        NetworkManager.instance.getInfos(cityName: "Grenoble") { infos in
+        NetworkManager.instance.getInfos(cityName: CityManager.instance.currentCity) { infos in
             //print(infos)
             let newsModelArray = NewsModelUI.createModelsFromJsonModel(model: infos)
             //print(newsModelArray)
             self.infosData = newsModelArray
             self.tableView.reloadData()
         }
-        NetworkManager.instance.getMeteo(cityName: "Grenoble") { weather in
+        NetworkManager.instance.getMeteo(cityName: CityManager.instance.currentCity) { weather in
             print(weather)
             self.weatherData = weather
         }
