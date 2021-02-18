@@ -276,13 +276,13 @@
 				EDDC8C4A25DD28BA00CD99FE /* Helpers */,
 				EDDC8C4825DD289B00CD99FE /* ViewsControllers */,
 				EDDC8C4B25DD297600CD99FE /* UIContext */,
+				ED1183C225DEB7E7001C5792 /* CityManager.swift */,
 				EDDC8C1C25DD21D300CD99FE /* Main.storyboard */,
 				EDDC8C1625DD21D300CD99FE /* AppDelegate.swift */,
 				EDDC8C2125DD21D700CD99FE /* LaunchScreen.storyboard */,
 				EDDC8C1825DD21D300CD99FE /* SceneDelegate.swift */,
 				EDDC8C1F25DD21D700CD99FE /* Assets.xcassets */,
 				EDDC8C2425DD21D700CD99FE /* Info.plist */,
-				ED1183C225DEB7E7001C5792 /* CityManager.swift */,
 			);
 			path = MaPetiteRegion;
 			sourceTree = "<group>";

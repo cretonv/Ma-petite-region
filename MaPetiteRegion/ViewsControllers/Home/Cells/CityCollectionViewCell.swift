@@ -13,9 +13,9 @@ class CityCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nbNewsLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
-    func setup() {
-        cityLabel.text = "Annecy"
-        nbNewsLabel.text = "25 news"
+    func setup(cityName:String, nbNews: String) {
+        cityLabel.text = cityName
+        nbNewsLabel.text = nbNews
     }
     
 }

@@ -23,6 +23,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        CityManager.instance.filterCities()
+        
         NetworkManager.instance.getMeteo(cityName: "Annecy") { meteo in
             if let temp = meteo.main?.temp {
                 self.temperature = String(temp)
@@ -50,7 +52,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     */
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+        return 3 + CityManager.instance.activedCities.count         // Nous permet de gérer l'affichage du bon nombre de lignes pour les villes sur la home
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -74,7 +76,10 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "City", for: indexPath) as? CityCollectionViewCell {
-            cell.setup()
+            
+            let city = CityManager.instance.activedCities[indexPath.row - 3]
+            cell.setup(cityName: city.cityName, nbNews: "20 news")
+            
             return cell
         }
        
