@@ -13,7 +13,8 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     let testUrl = "https://public.opendatasoft.com/api/records/1.0/search/?dataset=evenements-publics-cibul&q=Annecy&lang=fr&facet=tags&facet=placename&facet=department&facet=region&facet=city&facet=date_start&facet=date_end&facet=pricing_info&facet=updated_at&facet=city_district"
     var weatherData: WeatherInfos?
-    var infosData: Infos?
+    var infosData: [NewsModelUI] = []
+    var indexClicked: Int = 1
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,8 +25,11 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         
         NetworkManager.instance.getInfos(cityName: "Grenoble") { infos in
-            print(infos)
-            self.infosData = infos
+            //print(infos)
+            let newsModelArray = NewsModelUI.createModelsFromJsonModel(model: infos)
+            //print(newsModelArray)
+            self.infosData = newsModelArray
+            self.tableView.reloadData()
         }
         NetworkManager.instance.getMeteo(cityName: "Grenoble") { weather in
             print(weather)
@@ -53,7 +57,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1 + 3
+        return 1 + self.infosData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,7 +70,8 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         } else {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "News") as? NewsTableViewCell {
-                cell.setup(m: NewsModelUI.defaultModel())
+                let index: Int = indexPath.row - 1
+                cell.setup(m: infosData[index])
                 return cell
             } else {
                 return UITableViewCell()
@@ -76,6 +81,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row != 0 {
+            self.indexClicked = indexPath.row - 1
             performSegue(withIdentifier: "toNewsDescription", sender: self)
         }
     }
@@ -83,7 +89,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toNewsDescription" {
             if let destVC = segue.destination as? NewsDetailViewController {
-                destVC.modelUI = NewsModelUI.defaultModel()
+                destVC.modelUI = infosData[self.indexClicked]
             }
         }
     }
