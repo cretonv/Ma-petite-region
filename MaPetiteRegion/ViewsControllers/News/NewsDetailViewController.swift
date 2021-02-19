@@ -25,8 +25,13 @@ class NewsDetailViewController: UIViewController {
         if let model = modelUI {
             if let url = URL(string: model.imageUrl) {
                 let request = URLRequest(url: url)
-                imageView.af.setImage(withURLRequest: request, cacheKey: model.imageUrl, placeholderImage: UIImage(named: "annecy_bg"), serializer: nil, filter: nil, progress: nil, progressQueue: .global(), imageTransition: .noTransition, runImageTransitionIfCached: false, completion: nil)
-                //imageView.af.setImage(withURL: url)
+                imageView.af.setImage(withURLRequest: request, cacheKey: model.imageUrl, placeholderImage: UIImage(named: "meteo_sunny_bg"), serializer: nil, filter: nil, progress: nil, progressQueue: .global(), imageTransition: .noTransition, runImageTransitionIfCached: false) { (response) in
+                    if let _ = response.error {
+                        self.imageView.image = UIImage(named: "meteo_sunny_bg")
+                    }
+                }
+            } else {
+                imageView.image = UIImage(named: "meteo_sunny_bg")
             }
             dateLabel.text = model.date
             textView.text = model.fullContent
