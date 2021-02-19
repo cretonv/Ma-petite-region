@@ -31,8 +31,14 @@ class NewsTableViewCell: UITableViewCell {
         self.selectionStyle = .none
         if let url = URL(string: m.imageUrl) {
             let request = URLRequest(url: url)
-            newsImage.af.setImage(withURLRequest: request, cacheKey: m.imageUrl, placeholderImage: UIImage(named: "annecy_bg"), serializer: nil, filter: nil, progress: nil, progressQueue: .global(), imageTransition: .noTransition, runImageTransitionIfCached: false, completion: nil)
+            newsImage.af.setImage(withURLRequest: request, cacheKey: m.imageUrl, placeholderImage: UIImage(named: "annecy_bg"), serializer: nil, filter: nil, progress: nil, progressQueue: .global(), imageTransition: .noTransition, runImageTransitionIfCached: false) { (response) in
+                if let _ = response.error {
+                    self.newsImage.image = UIImage(named: "annecy_bg")
+                }
+            }
             // newsImage.af.setImage(withURL: url)
+        } else {
+            newsImage.image = UIImage(named: "annecy_bg")
         }
         newsTitle.text = m.title
         newsHat.text = m.hat
