@@ -17,7 +17,7 @@ extension NewsModelUI {
             for i in 0..<records.count {
                 models.append(NewsModelUI(title: records[i].fields?.title ?? "",
                                           hat: records[i].fields?.fieldsDescription ?? "",
-                                          imageUrl: records[i].fields?.imageThumb ?? "",
+                                          imageUrl: records[i].fields?.image ?? "",
                                           fullContent: records[i].fields?.freeText ?? "",
                                           date: records[i].fields?.dateStart ?? ""))
             }

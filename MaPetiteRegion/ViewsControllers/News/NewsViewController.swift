@@ -37,6 +37,17 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        NetworkManager.instance.getInfos(cityName: CityManager.instance.currentCity) { infos in
+            //print(infos)
+            let newsModelArray = NewsModelUI.createModelsFromJsonModel(model: infos)
+            //print(newsModelArray)
+            self.infosData = newsModelArray
+            self.tableView.reloadData()
+        }
+        
+        tableView.reloadData()
+    }
 
     /*
     // MARK: - Navigation

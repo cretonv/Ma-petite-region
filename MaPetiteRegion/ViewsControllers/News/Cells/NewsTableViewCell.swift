@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class NewsTableViewCell: UITableViewCell {
 
@@ -28,7 +29,11 @@ class NewsTableViewCell: UITableViewCell {
     
     func setup(m:NewsModelUI) {
         self.selectionStyle = .none
-        newsImage.image = UIImage(named: m.imageUrl)
+        if let url = URL(string: m.imageUrl) {
+            let request = URLRequest(url: url)
+            newsImage.af.setImage(withURLRequest: request, cacheKey: m.imageUrl, placeholderImage: UIImage(named: "annecy_bg"), serializer: nil, filter: nil, progress: nil, progressQueue: .global(), imageTransition: .noTransition, runImageTransitionIfCached: false, completion: nil)
+            // newsImage.af.setImage(withURL: url)
+        }
         newsTitle.text = m.title
         newsHat.text = m.hat
         
