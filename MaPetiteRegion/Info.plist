@@ -60,6 +60,14 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Nunito-ExtraBold.ttf</string>
+		<string>Nunito-Light.ttf</string>
+		<string>Nunito-Black.ttf</string>
+		<string>Nunito-Regular.ttf</string>
+		<string>Nunito-Bold.ttf</string>
+	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
